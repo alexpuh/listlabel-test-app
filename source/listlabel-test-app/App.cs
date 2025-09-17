@@ -61,7 +61,7 @@ public class App(IRepository repository, ILogger<App> logger)
         var projectType = RepositoryItemType.ToLlProject(item.Type);
 
         var ll = CreateLicensed();
-        ll.DataSource = new List<string>();
+        //ll.DataSource = new List<string>();
         ll.FileRepository = repository;
         ll.AutoProjectType = projectType;
         ll.AutoShowSelectFile = false;
@@ -84,6 +84,7 @@ public class App(IRepository repository, ILogger<App> logger)
         var failedFields = new HashSet<string>();
         ll.ExpressionError += (_, args) => OnExpressionError(args, failedFields);
         ll.Design(projectType, repositoryItemId);
+        
     }
 
 #pragma warning disable SYSLIB1045

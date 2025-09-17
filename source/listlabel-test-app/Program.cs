@@ -42,7 +42,7 @@ internal static class Program
         {
             app.Import(Path.Combine(testDataDirectory, "etikett.lbl"), "label");
             app.Import(Path.Combine(testDataDirectory, "rechnung.lst"), "list");
-            listId = app.CreateList("My List");
+            listId = app.CreateList("new-list");
         }
 
 /*
@@ -52,22 +52,46 @@ internal static class Program
             labelId = app.CreateLabel(uiName);    
         }
 */        
-        app.Design(listId!);
+        // app.Design(listId!);
         
-  /*      
-        app.Design(labelId!);
-        */
+        const string licensingInfo = "gHbEGg";
+        int nr = 1;
+        using var _ = ListLabelWrapper
+            .Create(licensingInfo)
+            .SetFileRepository(sp.GetRequiredService<IRepository>())
+            .SetupDesign(listId!)
+            .DefineVariables(vars =>
+            {
+                vars.Add("Invoice.Nr", 12345);
+                vars.Add("Customer.Name", "Mustermann");
+            })
+            .DefineFields(fields =>
+            {
+                fields.Add("Pos.Nr", nr);
+                fields.Add("Pos.Price", (decimal)17.3 * nr);
+                fields.Add("Pos.Name", "Mustermann " + nr);
+                nr++;
+                return nr < 10;
+            })
+            //.Design()
+            .Print()
+            ;
+        
+
+        /*
+              app.Design(labelId!);
+              */
 
         /*
         var repo = new JsonFilesRepository(NullLogger<JsonFilesRepository>.Instance, repositoryOptions);
         string templateId = "repository://{7CE97635-290A-4459-BE37-68B4F3800394}";
         using (var util = new RepositoryImportUtil(repo))
         {
-            templateId = util.CreateNewProject(LlProject.Label, "My Display", null);    
+            templateId = util.CreateNewProject(LlProject.Label, "My Display", null);
         }
-        
-        
-        
+
+
+
         var projectType = LlProject.Label;
         using (var ll = new combit.Reporting.ListLabel())
         {
@@ -76,7 +100,7 @@ internal static class Program
             ll.FileRepository = repo;
             ll.AutoProjectType = projectType;
             ll.AutoShowSelectFile = false;
-        
+
             ll.AutoProjectFile = templateId;
             ll.AutoFileAlsoNew = false;
             ll.AutoDestination = LlPrintMode.Normal;
@@ -84,7 +108,7 @@ internal static class Program
             ll.DataSource = new ObjectDataProvider(a);
             ll.Design();
         }
-        
+
         using (var ll = new combit.Reporting.ListLabel())
         {
             ll.Printerless = true;
@@ -92,7 +116,7 @@ internal static class Program
             ll.FileRepository = repo;
             ll.AutoProjectType = projectType;
             ll.AutoShowSelectFile = false;
-        
+
             ll.AutoProjectFile = templateId;
             ll.AutoFileAlsoNew = false;
             ll.AutoDestination = LlPrintMode.Normal;
@@ -101,5 +125,5 @@ internal static class Program
             ll.Design();
         }
         */
-    }
+}
 }
