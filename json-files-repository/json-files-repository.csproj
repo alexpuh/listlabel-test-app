@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--RepositoryItem is available only for windows-->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Alexpuh.ListLabel.JsonFilesRepository</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<PackageId>Alexpuh.ListLabel.JsonRepository</PackageId>
+	<RepositoryUrl>https://github.com/alexpuh/listlabel-json-files-repository</RepositoryUrl>		
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="combit.ListLabel29.Enterprise" Version="29.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

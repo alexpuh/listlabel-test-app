@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="combit.ListLabel29.Enterprise" Version="29.4.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.9" />
+        <PackageReference Include="System.Drawing.Common" Version="8.0.19" />    
+    </ItemGroup>
+
+</Project>
