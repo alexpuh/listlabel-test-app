@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListLabel.Design", "ListLab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListLabel.LegacyLabels", "ListLabel.LegacyLabels\ListLabel.LegacyLabels.csproj", "{10714DFE-43AF-413F-B43B-3E0433AE659D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "json-files-repository", "..\json-files-repository\json-files-repository.csproj", "{A80A0465-BC3D-4D94-A4A2-62A6181A3F19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{10714DFE-43AF-413F-B43B-3E0433AE659D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10714DFE-43AF-413F-B43B-3E0433AE659D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10714DFE-43AF-413F-B43B-3E0433AE659D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80A0465-BC3D-4D94-A4A2-62A6181A3F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80A0465-BC3D-4D94-A4A2-62A6181A3F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80A0465-BC3D-4D94-A4A2-62A6181A3F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80A0465-BC3D-4D94-A4A2-62A6181A3F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

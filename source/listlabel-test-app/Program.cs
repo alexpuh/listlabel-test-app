@@ -38,11 +38,14 @@ internal static class Program
 
         var app = sp.GetRequiredService<App>();
 
-        if (!app.TryGetItemByUiName("new-list", out var listId))
+        
+        var uiName = "new-label";
+        if (!app.TryGetItemByUiName(uiName, out var templateId))
         {
             app.Import(Path.Combine(testDataDirectory, "etikett.lbl"), "label");
             app.Import(Path.Combine(testDataDirectory, "rechnung.lst"), "list");
-            listId = app.CreateList("new-list");
+            // templateId = app.CreateList("new-list");
+            templateId = app.CreateLabel(uiName);
         }
 
 /*
@@ -59,12 +62,13 @@ internal static class Program
         using var _ = ListLabelWrapper
             .Create(licensingInfo)
             .SetFileRepository(sp.GetRequiredService<IRepository>())
-            .SetupDesign(listId!)
+            //.SetupDesign(templateId!)
             .DefineVariables(vars =>
             {
                 vars.Add("Invoice.Nr", 12345);
                 vars.Add("Customer.Name", "Mustermann");
             })
+            /*
             .DefineFields(fields =>
             {
                 fields.Add("Pos.Nr", nr);
@@ -73,8 +77,9 @@ internal static class Program
                 nr++;
                 return nr < 10;
             })
-            //.Design()
-            .Print()
+            */
+            //.Design(templateId!)
+            .Print(templateId!)
             ;
         
 
